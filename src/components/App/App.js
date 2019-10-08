@@ -1,16 +1,12 @@
 import React from 'react';
-import ErrorIndicator from '../ErrorIndicator';
-import Spinner from '../Spinner';
 
-const App = () => {
-    return (
-        <div>
-            <h2>App body</h2>
-            <ErrorIndicator />
-            <Spinner />         
-        </div>
+import { withBookstoreService } from '../hoc';
 
-    )
+const App = ({ bookstoreService }) => {
+
+    console.log(bookstoreService.getBooks());
+
+    return <h2>App</h2>
 };
 
-export default App;
+export default withBookstoreService()(App);
