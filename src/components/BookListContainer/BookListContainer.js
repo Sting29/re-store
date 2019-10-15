@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { withBookstoreService } from '../hoc';
-import { fetchBooks, onAddedToCart } from '../../actions';
+import { fetchBooks, bookAddedToCart } from '../../actions';
 import { compose } from '../../utils';
 
 import BookList from '../BookList';
@@ -39,7 +39,7 @@ const mapStateToProps = ({ books, loading, error }) => {
 const mapDispatchToProps = (dispatch, { bookstoreService }) => {
     return {
         fetchBooks: fetchBooks(bookstoreService, dispatch),
-        onAddedToCart: (id) => dispatch(onAddedToCart(id))
+        onAddedToCart: (id) => dispatch(bookAddedToCart(id))
     };
 };
 
